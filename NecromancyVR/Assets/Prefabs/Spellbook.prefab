@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 8066679106249866464}
   - component: {fileID: 4378924348796502108}
   - component: {fileID: 4555449519671018069}
+  - component: {fileID: 55762017423362448}
   m_Layer: 0
   m_Name: Spellbook
   m_TagString: Untagged
@@ -292,6 +293,35 @@ MonoBehaviour:
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
   estimateOnAwake: 0
+--- !u!114 &55762017423362448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620102253976403042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poseEditorExpanded: 1
+  blendEditorExpanded: 1
+  poseNames:
+  - holdProtograver (MAIN)
+  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf,
+    type: 3}
+  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25,
+    type: 3}
+  skeletonMainPose: {fileID: 11400000, guid: 431edd63af53b56418e2f12bceac8c35, type: 2}
+  skeletonAdditionalPoses: []
+  showLeftPreview: 0
+  showRightPreview: 0
+  previewLeftInstance: {fileID: 0}
+  previewRightInstance: {fileID: 0}
+  previewPoseSelection: 0
+  blendingBehaviours: []
+  scale: 1
 --- !u!1 &2620102254031601449
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,8 +585,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4931318735912756225}
-  m_Text: "This is the spellbook! Slide the \ntouchpad/joystick left or right to\nflip
-    through the pages of the book."
+  m_Text: "This is the Graver, a demonic \nspellbook! Slide the \ntouchpad/joystick
+    left or right to\nflip through the pages of the book."
   m_OffsetZ: 0
   m_CharacterSize: 0.07
   m_LineSpacing: 1
