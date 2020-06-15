@@ -14,7 +14,7 @@ public class NecromancerController : MonoBehaviour
     private GameObject graverPrefab;
 
     //bool to see if the player can pull out the Graver
-    private bool summonGraver = false;
+    //private bool summonGraver = false;
 
     //max summon distance for the Graver
     public float graverSummonDistance;
@@ -22,6 +22,9 @@ public class NecromancerController : MonoBehaviour
     //vr camera
     [SerializeField]
     private GameObject vrCam;
+
+    //action bool for VR controllers
+    public SteamVR_Action_Boolean graverSummonAction;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,10 @@ public class NecromancerController : MonoBehaviour
         //loop to check each hand
         foreach(Hand hand in Player.instance.hands)
         {
-            //--check if the player's hand is behind their head
+            //save the input source of the hand
+            SteamVR_Input_Sources source = hand.handType;
+
+            //--check if the player's hand is behind them
             //get vector between head and hand
             Vector3 headToHand = hand.transform.position - vrCam.transform.position;
 
@@ -46,16 +52,24 @@ public class NecromancerController : MonoBehaviour
             //check if the forward product is negative, and allow the player to pull out the Graver if the vector is small enough and no other Graver exists in the world
             if (forwardProduct < 0 && headToHand.z < graverSummonDistance && headToHand.x < graverSummonDistance && activeGraver == null)
             {
-                //activate ability to summon graver
-                summonGraver = true;
-
                 //rumble the controller when it's possible to summon the Graver
                 hand.TriggerHapticPulse(2500);
-            }
-            else
-            {
-                //set graver activation bool to false
-                summonGraver = false;
+
+                //check if the trigger is pressed and then summon the Graver to the player's hand if it is
+                if(graverSummonAction[source].stateDown)
+                {
+                    //check if another Graver exists in the world and destroy it
+                    if(activeGraver != null)
+                    {
+                        Destroy(activeGraver.gameObject);
+                    }
+
+                    //spawn the Graver and attach it to the player's hand
+                    GameObject newGraver = Instantiate(graverPrefab);
+                    activeGraver = graverPrefab.GetComponent<Interactable>();
+                    hand.AttachObject(newGraver, GrabTypes.Pinch);
+                    hand.HoverLock(activeGraver);
+                }
             }
         }
     }

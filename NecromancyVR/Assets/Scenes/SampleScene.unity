@@ -126,18 +126,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1694262253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &175587248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175587247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01a149c150258343b7ee450e4b0bdbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &175587249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +575,9 @@ MonoBehaviour:
     type: 3}
   graverSummonDistance: 0.5
   vrCam: {fileID: 1030214389}
+  graverSummonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
 --- !u!114 &755633284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,6 +1658,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447367623897996483, guid: 431beb21638e384429e9cad95c233b26,
+        type: 3}
+      propertyPath: detachTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378924348796502108, guid: 431beb21638e384429e9cad95c233b26,
+        type: 3}
+      propertyPath: attachmentFlags
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 8066679106249866464, guid: 431beb21638e384429e9cad95c233b26,
         type: 3}
