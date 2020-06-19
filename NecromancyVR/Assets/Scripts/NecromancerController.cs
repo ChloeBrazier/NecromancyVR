@@ -50,7 +50,7 @@ public class NecromancerController : MonoBehaviour
             float forwardProduct = Vector3.Dot(Player.instance.bodyDirectionGuess, headToHand);
 
             //check if the forward product is negative, and allow the player to pull out the Graver if the vector is small enough and no other Graver exists in the world
-            if (forwardProduct < 0 && headToHand.z < graverSummonDistance && headToHand.x < graverSummonDistance && activeGraver == null)
+            if (forwardProduct < 0 && headToHand.z < graverSummonDistance && headToHand.x < graverSummonDistance)
             {
                 //rumble the controller when it's possible to summon the Graver
                 hand.TriggerHapticPulse(2500);
@@ -71,6 +71,13 @@ public class NecromancerController : MonoBehaviour
                     hand.HoverLock(activeGraver);
                 }
             }
+
+            //detach Graver from hand if the trigger is released
+            //if(graverSummonAction[source].stateUp && activeGraver != null)
+            //{
+                //hand.DetachObject(activeGraver.gameObject);
+                //hand.HoverUnlock(activeGraver);
+            //}
         }
     }
 }
