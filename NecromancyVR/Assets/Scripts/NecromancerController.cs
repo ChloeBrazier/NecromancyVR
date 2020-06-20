@@ -71,13 +71,6 @@ public class NecromancerController : MonoBehaviour
                     hand.HoverLock(activeGraver);
                 }
             }
-
-            //detach Graver from hand if the trigger is released
-            //if(graverSummonAction[source].stateUp && activeGraver != null)
-            //{
-                //hand.DetachObject(activeGraver.gameObject);
-                //hand.HoverUnlock(activeGraver);
-            //}
         }
     }
 }
